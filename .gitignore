@@ -1,0 +1,53 @@
+# Flutter e Dart
+.dart_tool/
+.packages
+.pub/
+.flutter-plugins
+.flutter-plugins-dependencies
+.metadata
+*.dart_tool/
+*.log
+
+# Dependências e builds
+build/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/.symlinks/
+ios/Pods/
+ios/Podfile.lock
+android/.gradle/
+android/.idea/
+android/local.properties
+android/app/app.iml
+android/build/
+*.apk
+*.aar
+*.app
+*.iws
+
+# Arquivos específicos do sistema operacional
+.DS_Store
+.idea/
+*.iml
+*.swp
+*.lock
+*.log
+*.tmp
+Thumbs.db
+
+# Configurações específicas de IDE
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.log
+
+# Arquivos de configuração de depuração
+app-debug.apk
+app-profile.apk
+app-release.apk
+
+# Arquivos para Firebase (caso esteja usando o Crashlytics)
+ios/firebase_app_id_file.json
