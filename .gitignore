@@ -1,0 +1,50 @@
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos e pastas do Flutter
+**/build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+
+# Arquivos de configurações locais do VS Code
+.vscode/
+.idea/
+*.iml
+
+# Arquivos gerados automaticamente
+.dart_tool/
+*.log
+*.lock
+*.tmp
+
+# APKs e pacotes de compilação
+*.apk
+*.aab
+*.ipa
+
+# Arquivos de configuração do iOS/macOS
+ios/Flutter/Flutter.podspec
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+macos/Flutter/ephemeral/
+
+# Outras pastas de compilação
+windows/
+linux/
+web/
+
+# Arquivos do Android
+app/*.keystore
+app/build/
+android/.gradle/
+android/app/proguard-rules.pro
+android/key.properties
+
+# Arquivos de cache específicos do Flutter
+.flutter/
