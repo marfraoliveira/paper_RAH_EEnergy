@@ -1,0 +1,41 @@
+void startAccelerometerDataCollection() {
+  accelerometerDataList = [];
+  const int targetFrequency = 10; // Frequência desejada em Hz
+  const int sampleIntervalMs = 1000 ~/ targetFrequency; // Intervalo de amostragem em milissegundos
+  int lastSampleTime = DateTime.now().millisecondsSinceEpoch;
+
+  subscription = accelerometerEvents.listen((AccelerometerEvent event) {
+    if (_countdown > 0) {
+      final currentTime = DateTime.now().millisecondsSinceEpoch;
+
+      // Verifica se o tempo desde a última amostra é maior ou igual ao intervalo de amostragem
+      if (currentTime - lastSampleTime >= sampleIntervalMs) {
+        setState(() {
+          accelerometerDataList.add({
+            "x": event.x,
+            "y": event.y,
+            "z": event.z,
+            "timestamp": currentTime,
+          });
+          xValue = event.x;
+          yValue = event.y;
+          zValue = event.z;
+          print('Valores dos eixos $targetFrequency Hz: x=$xValue, y=$yValue, z=$zValue');
+          
+          if (accelerometerDataList.length == batchSize) {
+            sendAccelerometerDataBatch(accelerometerDataList);
+            accelerometerDataList.clear(); // Limpa a lista para continuar a coleta
+          }
+
+          // Atualiza o tempo da última amostra
+          lastSampleTime = currentTime;
+
+          // Calcular a magnitude e monitorar
+          double magnitude = calculateVectorMagnitude(xValue!, yValue!, zValue!);
+          monitorMagnitudeAndClassify(magnitude);
+        });
+      }
+    }
+  });
+}
+
